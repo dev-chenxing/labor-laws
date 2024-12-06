@@ -1,13 +1,13 @@
 doctype html
 html(lang='zh')
-  block frontmatter
-  head 
-    meta(charset='utf-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1')
-    title #{title}
-    link(rel='icon' href='/assets/images/favicon.png' sizes='any')
-    link(rel='stylesheet' href='/assets/css/main.css')
-  body
-    h1= title
-    main
-      block content
+	block frontmatter
+	head 
+		meta(charset='utf-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		title #{title}
+		link(rel='icon' href='/dist/assets/images/favicon.png' sizes='any')
+		link(rel='stylesheet' href='/dist/assets/css/main.css')
+	body
+		h1= title
+		main
+			block content
