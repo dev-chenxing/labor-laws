@@ -3,7 +3,17 @@ const gulpPug = require("gulp-pug");
 const gulpStylus = require("gulp-stylus");
 
 const pug = (done) => {
-    src("./src/**/*.pug", { ignore: "./src/partials/**/*.pug" }).pipe(gulpPug()).pipe(dest("./dist"));
+    src("./src/**/*.pug", { ignore: "./src/partials/**/*.pug" })
+        .pipe(
+            gulpPug({
+                filters: {
+                    law: function (text, options) {
+                        return "hello world";
+                    },
+                },
+            })
+        )
+        .pipe(dest("./dist"));
     done();
 };
 
