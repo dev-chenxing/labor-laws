@@ -3,20 +3,52 @@ body {
   margin: 0 auto;
   font-size: 20px;
 }
-body h1 {
-  text-align: center;
-}
-body .law {
-  height: 36px;
-  line-height: 36px;
-  border-bottom: 1px dashed #d3d3d3;
-}
-body .law a {
+body a {
   color: #000;
   text-decoration: none;
 }
+body nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+body .input {
+  position: relative;
+  margin-right: 1rem;
+}
+body .input input.text {
+  padding-left: 1rem;
+  width: 100%;
+  border: #000 solid 2px;
+  font-size: 1rem;
+  height: 2rem;
+  outline: none;
+}
+body .input input.icon {
+  position: absolute;
+  right: -0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+body header {
+  width: fit-content;
+  margin: 0 auto;
+}
+body header h1 {
+  text-align: center;
+}
 body main {
   padding: 20px 100px 50px;
+}
+body main .law {
+  height: 36px;
+  line-height: 36px;
+  border-bottom: 1px dashed #d3d3d3;
 }
 body main .text-center {
   text-align: center;
