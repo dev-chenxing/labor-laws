@@ -1,4 +1,11 @@
-- var baseUrl = "/labor-laws"
+- var baseUrl = "/dist"
+- var siteTitle = "劳动保障监察法律法规"
+
+mixin search()
+	form.input(autocomplete="off" onsubmit="searchInput(event)")
+		input(type="text" placeholder="查找全部" name="search").text
+		input(type="submit" value="➡️").icon
+
 
 doctype html
 html(lang='zh')
@@ -10,6 +17,16 @@ html(lang='zh')
 		link(rel='icon' href=`${baseUrl}/assets/images/favicon.png` sizes='any')
 		link(rel='stylesheet' href=`${baseUrl}/assets/css/main.css`)
 	body
-		h1= title
+		if type != "homepage"
+			nav
+				a(href=baseUrl)= siteTitle
+				+search()
+
+		header
+			h1= title
+			if type == "homepage"
+				+search()
 		main
 			block content
+		script
+			include ../_js/search.js
