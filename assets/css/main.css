@@ -1,0 +1,28 @@
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 20px;
+}
+body h1 {
+  text-align: center;
+}
+body .law {
+  height: 36px;
+  line-height: 36px;
+  border-bottom: 1px dashed #d3d3d3;
+}
+body .law a {
+  color: #000;
+  text-decoration: none;
+}
+body main {
+  padding: 20px 100px 50px;
+}
+body main .text-center {
+  text-align: center;
+  text-indent: 0;
+}
+body main p {
+  text-align: justify;
+  text-indent: 2em;
+}
