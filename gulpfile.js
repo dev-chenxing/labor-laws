@@ -37,4 +37,9 @@ const stylus = (done) => {
     done();
 };
 
-exports.build = series(pug, stylus);
+const images = (done) => {
+    src("./assets/images/*").pipe(dest("./dist/assets/images"));
+    done();
+};
+
+exports.build = series(pug, stylus, images);
