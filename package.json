@@ -5,6 +5,7 @@
         "build": "gulp build",
         "deploy": "gh-pages -d dist"
     },
+    "homepage": "https://dev-chenxing.github.io/labor-laws/",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/dev-chenxing/labor-laws.git"
