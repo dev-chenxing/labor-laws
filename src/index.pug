@@ -1,14 +1,18 @@
 extends partials/layout.pug
 
-mixin act(title, href)
-  .act 
+mixin law(title, href)
+  .law 
     a(href=href)= title
 
 block frontmatter
   - var title = "劳动保障监察法律法规"
 
 block content
-  +act("劳动法", "./content/labor-act.html")
-  +act("劳动合同法", "./content/contract-of-employment-act.html")
-  +act("社会保险法", "./content/social-security-act.html")
+  +law("劳动法", "./content/labor-law.html")
+  +law("劳动合同法", "./content/employment-contract-law.html")
+  +law("社会保险法", "./content/social-security-law.html")
+  +law("劳动争议调解仲裁法", "./content/labor-dispute-conciliation-and-arbitration-law.html")
+  +law("劳动合同法实施条例", "./content/employment-contract-law-implementing-regulations.html")
+  +law("广东省劳动保障监察条例", "./content/labor-security-supervision-regulations.html")
+  +law("广东省实施《女职工劳动保护特别规定》办法", "./content/special-provisions-for-the-work-protection-of-female-employees.html")
 
