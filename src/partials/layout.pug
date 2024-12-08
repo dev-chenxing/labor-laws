@@ -1,11 +1,10 @@
-- var baseUrl = "/dist"
 - var siteTitle = "劳动保障监察法律法规"
 
 mixin search()
-	form.input(autocomplete="off" onsubmit="searchInput(event)")
-		input(type="text" placeholder="查找全部" name="search").text
+	.input(autocomplete="off")
+		input(type="text" placeholder="查找全部" onInput="searchInput(this.value)").text
 		input(type="submit" value="➡️").icon
-
+		.search-result
 
 doctype html
 html(lang='zh')
@@ -16,6 +15,8 @@ html(lang='zh')
 		title #{title}
 		link(rel='icon' href=`${baseUrl}/assets/images/favicon.png` sizes='any')
 		link(rel='stylesheet' href=`${baseUrl}/assets/css/main.css`)
+		script(src="https://cdn.jsdelivr.net/npm/minisearch@7.1.1/dist/umd/index.min.js")
+		
 	body
 		if type != "homepage"
 			nav

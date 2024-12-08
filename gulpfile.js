@@ -1,6 +1,7 @@
 const { series, src, dest } = require("gulp");
-const gulpPug = require("gulp-pug");
-const gulpStylus = require("gulp-stylus");
+const Pug = require("gulp-pug");
+const Stylus = require("gulp-stylus");
+const Hjson = require("gulp-hjson");
 
 function law(text, options) {
     function parse(line) {
@@ -19,12 +20,22 @@ function law(text, options) {
     return lines.join("");
 }
 
+const hjson = (done) => {
+    src("./src/_js/*.hjson")
+        .pipe(Hjson({ to: "json" }))
+        .pipe(dest("./dist/js"));
+    done();
+};
+
 const pug = (done) => {
     src("./src/**/*.pug", { ignore: "./src/partials/**/*.pug" })
         .pipe(
-            gulpPug({
+            Pug({
                 filters: {
                     law: law,
+                },
+                locals: {
+                    baseUrl: "/dist",
                 },
             })
         )
@@ -33,7 +44,7 @@ const pug = (done) => {
 };
 
 const stylus = (done) => {
-    src("./src/_stylus/*.styl").pipe(gulpStylus()).pipe(dest("./dist/assets/css/"));
+    src("./src/_stylus/*.styl").pipe(Stylus()).pipe(dest("./dist/assets/css/"));
     done();
 };
 
@@ -42,4 +53,9 @@ const images = (done) => {
     done();
 };
 
-exports.build = series(pug, stylus, images);
+const js = (done) => {
+    src("./src/_js/*.js").pipe(dest("./dist/js"));
+    done();
+};
+
+exports.build = series(hjson, pug, stylus, images, js);

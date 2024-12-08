@@ -1,3 +1,5 @@
+*
+    box-sizing border-box
 body
     max-width 1200px
     margin 0 auto
@@ -5,37 +7,45 @@ body
     a   
         color black
         text-decoration none
+    .input
+        position relative
+        width 24rem
+        font-size 0.875rem
+        margin 0 auto
+        input.text
+            width 100%
+            border black solid 2px
+            height 2rem
+            outline: none
+            font-size 1rem
+            padding 0 0.5rem
+        input.icon
+            position absolute
+            right 0.125rem
+            top 50%
+            transform translateY(-50%)
+            background-color: transparent
+            border: none
+            cursor pointer
+        .search-result
+            display none
+            position absolute
+            border black solid 2px
+            border-top none
+            width 100%
+            padding 0.25rem 0.5rem
     nav
         display flex
         justify-content space-between
         align-items center
         margin-top 0.5rem
-    .input
-        position relative
-        margin-right 1rem
-        input.text
-            padding-left @margin-right
-            width 100%
-            border black solid 2px
-            font-size 1rem
-            height 2rem
-            outline: none
-        input.icon
-            position absolute
-            right -0.75rem
-            top 50%
-            transform translateY(-50%)
-            background-color: transparent
-            border: none
-            padding: 0
-            cursor pointer
+        .input
+            margin 0
     header
         width fit-content
         margin 0 auto
         h1
             text-align center
-        
-
     main
         padding 20px 100px 50px
         .law
