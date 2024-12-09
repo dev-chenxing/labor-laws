@@ -1,4 +1,4 @@
 # TODO
 
-- [ ] Fill the `laws.hjson`
+- [ ] go to page
 - [ ] search each rule instead of one single page

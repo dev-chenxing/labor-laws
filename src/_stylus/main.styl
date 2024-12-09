@@ -24,13 +24,19 @@ body
             right 0.25rem
             top 50%
             transform translateY(-50%)
-        #search-result
+        #search-results
+            background-color white
             display none
             position absolute
             border black solid 2px
             border-top none
             width 100%
             padding 0.25rem 0.5rem
+            .search-result
+                cursor pointer
+                display block
+            .search-result:hover
+                background-color lightgray
     nav
         display flex
         justify-content space-between
