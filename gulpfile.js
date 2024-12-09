@@ -36,7 +36,7 @@ const pug = (done) => {
                     law: law,
                 },
                 locals: {
-                    baseUrl: "/dist",
+                    baseUrl: "/labor-laws",
                 },
             })
         )
