@@ -9,9 +9,11 @@ body
         text-decoration none
     .input
         position relative
-        width 36rem
         font-size 0.875rem
         margin 0 auto
+        width 36rem
+        +below(1024px)
+            width 75%
         input.text
             width 100%
             border black solid 2px
@@ -45,12 +47,17 @@ body
         .input
             margin 0
     header
-        width fit-content
+        width 100%
         margin 0 auto
+        padding 1rem
         h1
             text-align center
+            +below(1024px)
+                font-size 24px
     main
         padding 20px 100px 50px
+        +below(1024px)
+            padding 20px 50px 50px
         .law
             height 36px
             line-height 36px

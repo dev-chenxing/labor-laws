@@ -1,4 +1,4 @@
 # TODO
 
-- [ ] go to page
+- [ ] mobile view
 - [ ] search each rule instead of one single page

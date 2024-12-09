@@ -2,6 +2,7 @@ const { series, src, dest } = require("gulp");
 const Pug = require("gulp-pug");
 const Stylus = require("gulp-stylus");
 const Hjson = require("gulp-hjson");
+const rupture = require("rupture");
 
 function law(text, options) {
     function parse(line) {
@@ -35,7 +36,7 @@ const pug = (done) => {
                     law: law,
                 },
                 locals: {
-                    baseUrl: "/labor-laws",
+                    baseUrl: "/dist",
                 },
             })
         )
@@ -44,12 +45,14 @@ const pug = (done) => {
 };
 
 const stylus = (done) => {
-    src("./src/_stylus/*.styl").pipe(Stylus()).pipe(dest("./dist/assets/css/"));
+    src("./src/_stylus/*.styl")
+        .pipe(Stylus({ use: rupture() }))
+        .pipe(dest("./dist/assets/css/"));
     done();
 };
 
 const images = (done) => {
-    src("./assets/images/favicon_64x64.png",{encoding:false}).pipe(dest("./dist/assets/images"));
+    src("./assets/images/favicon_64x64.png", { encoding: false }).pipe(dest("./dist/assets/images"));
     done();
 };
 
