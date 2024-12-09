@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
   max-width: 1200px;
   margin: 0 auto;
@@ -7,33 +10,50 @@ body a {
   color: #000;
   text-decoration: none;
 }
+body .input {
+  position: relative;
+  width: 36rem;
+  font-size: 0.875rem;
+  margin: 0 auto;
+}
+body .input input.text {
+  width: 100%;
+  border: #000 solid 2px;
+  height: 2rem;
+  outline: none;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+body .input .icon {
+  position: absolute;
+  right: 0.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+body .input #search-results {
+  background-color: #fff;
+  display: none;
+  position: absolute;
+  border: #000 solid 2px;
+  border-top: none;
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+}
+body .input #search-results .search-result {
+  cursor: pointer;
+  display: block;
+}
+body .input #search-results .search-result:hover {
+  background-color: #d3d3d3;
+}
 body nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 0.5rem;
 }
-body .input {
-  position: relative;
-  margin-right: 1rem;
-}
-body .input input.text {
-  padding-left: 1rem;
-  width: 100%;
-  border: #000 solid 2px;
-  font-size: 1rem;
-  height: 2rem;
-  outline: none;
-}
-body .input input.icon {
-  position: absolute;
-  right: -0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+body nav .input {
+  margin: 0;
 }
 body header {
   width: fit-content;
