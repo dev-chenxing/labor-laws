@@ -3,7 +3,7 @@
 mixin search()
 	.input(autocomplete="off")
 		input(type="text" placeholder="查找全部" onInput="searchInput(this.value)").text
-		input(type="submit" value="➡️").icon
+		span.icon 🔎
 		.search-result
 
 doctype html
