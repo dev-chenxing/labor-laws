@@ -1,4 +1,4 @@
-const baseUrl = "/dist";
+const baseUrl = "/labor-laws";
 
 const segmenter = Intl.Segmenter && new Intl.Segmenter("zh", { granularity: "word" });
 let miniSearch = new MiniSearch({
