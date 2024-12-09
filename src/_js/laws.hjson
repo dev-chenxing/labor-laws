@@ -1,6 +1,7 @@
-{
-    labor-law: {
-        short: 劳动法
+[
+    {
+        id: labor-law
+        shorthand: 劳动法
         title: 中国人民共和国劳动法
         content: 
           '''
@@ -212,7 +213,8 @@
       第一百零七条　本法自1995年1月1日起施行。
       '''
     },
-    employment-contract-law: {
+    {
+      id: employment-contract-law
       shorthand: 劳动合同法
       title: 中国人民共和国劳动合同法
       content:
@@ -492,4 +494,4 @@
       第九十八条　本法自2008年1月1日起施行。
         '''
     }
-}
+]

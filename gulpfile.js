@@ -49,12 +49,12 @@ const stylus = (done) => {
 };
 
 const images = (done) => {
-    src("./assets/images/*").pipe(dest("./dist/assets/images"));
+    src("./assets/images/favicon_64x64.png",{encoding:false}).pipe(dest("./dist/assets/images"));
     done();
 };
 
 const js = (done) => {
-    src("./src/_js/*.js").pipe(dest("./dist/js"));
+    src("./src/_js/**/*.js").pipe(dest("./dist/js"));
     done();
 };
 
