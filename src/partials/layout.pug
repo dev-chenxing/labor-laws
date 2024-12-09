@@ -1,3 +1,11 @@
+- var siteTitle = "劳动保障监察法律法规"
+
+mixin search()
+	.input(autocomplete="off")
+		input(type="text" placeholder="查找全部" onInput="searchInput(this.value)").text
+		input(type="submit" value="➡️").icon
+		.search-result
+
 doctype html
 html(lang='zh')
 	block frontmatter
@@ -5,9 +13,21 @@ html(lang='zh')
 		meta(charset='utf-8')
 		meta(name='viewport' content='width=device-width, initial-scale=1')
 		title #{title}
-		link(rel='icon' href='/dist/assets/images/favicon.png' sizes='any')
-		link(rel='stylesheet' href='/dist/assets/css/main.css')
+		link(rel='icon' href=`${baseUrl}/assets/images/favicon.png` sizes='any')
+		link(rel='stylesheet' href=`${baseUrl}/assets/css/main.css`)
+		script(src="https://cdn.jsdelivr.net/npm/minisearch@7.1.1/dist/umd/index.min.js")
+		
 	body
-		h1= title
+		if type != "homepage"
+			nav
+				a(href=baseUrl)= siteTitle
+				+search()
+
+		header
+			h1= title
+			if type == "homepage"
+				+search()
 		main
 			block content
+		script
+			include ../_js/search.js
