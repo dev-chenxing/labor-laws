@@ -3,6 +3,7 @@ const Pug = require("gulp-pug");
 const Stylus = require("gulp-stylus");
 const Hjson = require("gulp-hjson");
 const rupture = require("rupture");
+const chinese_parseInt = require('./src/_js/lib/chinese-parseint');
 
 function law(text, options) {
     function parse(line) {
@@ -12,7 +13,10 @@ function law(text, options) {
             if (index > 0) {
                 const label = line.slice(0, index);
                 if (/[章节]$/.test(label)) return `<p class="text-center"><strong>${line}</strong></p>`;
-                else if (/条$/.test(label)) return `<p><strong>${label}</strong> ${line.slice(index)}</p>`;
+                else if (/条$/.test(label)) {
+                    const num = chinese_parseInt(label.match(/^第(.*?)条$/)[1]);
+                    return `<p><a id="${num}"><strong>${label}</strong></a> ${line.slice(index)}</p>`;
+                }
                 else return `<p>${line}</p>`;
             } else return `<p>${line}</p>`;
         }
@@ -36,7 +40,7 @@ const pug = (done) => {
                     law: law,
                 },
                 locals: {
-                    baseUrl: "/labor-laws",
+                    baseUrl: "/dist",
                 },
             })
         )
