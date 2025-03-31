@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from "fs";
 
-const filename = "./1-original.mdx";
+const filename = "./2.mdx";
 let mdx = readFileSync(filename, "utf-8");
 
 let title;
@@ -26,6 +26,6 @@ title: ${title}
 
 mdx = frontmatter + lines.join("\n");
 
-writeFileSync("./1.mdx", mdx, {
+writeFileSync(filename, mdx, {
 	flag: "w",
 });
