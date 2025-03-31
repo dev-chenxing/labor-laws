@@ -1,19 +1,34 @@
 import { readFileSync, writeFileSync } from "fs";
 
-const filename = "./2.mdx";
+const filename = "./5.mdx";
 let mdx = readFileSync(filename, "utf-8");
 
 let title;
+let linebreak = true;
 let lines = mdx.split("\n").map((line, index) => {
 	line = line.trim();
 	if (index==0){
 		title = line;
 		line = `# ${line}`
 	} else {
-        let section = line.match(/^第(.*)条 /)
-        if (section) {
-            line = line.replace(section[0], `**${section[0].trim()}** `)
-        }
+				if (line === "") linebreak = false;
+				else {
+					let chapter = line.match(/^第(.*)章\s/)
+					let section = line.match(/^第(.*)节\s/)
+					let article = line.match(/^第(.*)条\s/)
+					if (article) {
+							line = line.replace(article[0], `**${article[0].trim()}** `)
+					} else if (section) {
+						line = `### ${line}`
+					}  else if (chapter) {
+						line = `## ${line}`
+					}
+					if (linebreak) {
+						line = "\n" + line;
+					} else {
+						linebreak = true
+					}
+				}
 		}
 	return line;
 });
