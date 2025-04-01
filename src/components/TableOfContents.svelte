@@ -13,7 +13,6 @@
 
 	function onkeydown(e: KeyboardEvent) {
 		if (document.querySelector("dialog")?.open) {
-			console.log(e.key)
 			if (e.key == "ArrowDown") {activeIndex = mod(activeIndex + 1, laborLaws.length ?? 0);}
 			else if (e.key == "ArrowUp") {activeIndex = mod(activeIndex - 1, laborLaws.length ?? 0);}
 			else if (e.key == "Enter") {window.open(getLaborLawHref(laborLaws[activeIndex]), "_self")}
@@ -27,7 +26,7 @@
 
 <div id="laborLaws">
 	{#each laborLaws as law, index}
-	<p class={"px-0.5 text-base/6 " + (index === activeIndex ? "bg-white text-black" : "")}>
+	<p class={"p-0.5 text-base/5 " + (index === activeIndex ? "bg-white text-black" : "")}>
 		<a href={getLaborLawHref(law)}>{law}</a>
 	</p>
 	{/each}

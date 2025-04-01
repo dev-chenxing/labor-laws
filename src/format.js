@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from "fs";
 
-const filename = "./最高人民法院关于审理劳动争议案件适用法律问题的解释（一）.mdx";
+const filename = "./中华人民共和国宪法.mdx";
 let mdx = readFileSync(filename, "utf-8");
 
 let title;
@@ -13,7 +13,7 @@ let lines = mdx.split("\n").map((line, index) => {
 	} else {
 				if (line === "") linebreak = false;
 				else {
-					let chapter = line.match(/^第(.*)章\s/)
+					let chapter = line.match(/^第(.*)章\s/) || line.match(/^序言/)
 					let section = line.match(/^第(.*)节\s/)
 					let article = line.match(/^第(.*)条\s/)
 					if (article) {
