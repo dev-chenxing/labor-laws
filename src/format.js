@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from "fs";
 
-const filename = "./中华人民共和国宪法.mdx";
+const filename = "./国务院关于渐进式延迟法定退休年龄的办法.mdx";
 let mdx = readFileSync(filename, "utf-8");
 
 let title;
