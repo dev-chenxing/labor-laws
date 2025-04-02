@@ -24,7 +24,7 @@
 	{onkeydown}
 />
 
-<div id="laborLaws">
+<div id="laborLaws" class="max-h-80 overflow-scroll">
 	{#each laborLaws as law, index}
 	<p class={"p-0.5 text-base/5 " + (index === activeIndex ? "bg-white text-black" : "")}>
 		<a href={getLaborLawHref(law)}>{law}</a>

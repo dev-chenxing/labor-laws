@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from "fs";
 
-const filename = "./国务院关于渐进式延迟法定退休年龄的办法.mdx";
+const filename = "./中华人民共和国就业促进法.mdx";
 let mdx = readFileSync(filename, "utf-8");
 
 let title;
@@ -16,9 +16,12 @@ let lines = mdx.split("\n").map((line, index) => {
 					let chapter = line.match(/^第(.*)章\s/) || line.match(/^序言/)
 					let section = line.match(/^第(.*)节\s/)
 					let article = line.match(/^第(.*)条\s/)
+					let ol = line.match(/^\d+[\.．]/)
 					if (article) {
 							line = line.replace(article[0], `**${article[0].trim()}** `)
-					} else if (section) {
+					} else if (ol) {
+						line = line.replace(/^(\d+)[\.．]/, "**第$1条** ")
+					}  else if (section) {
 						line = `### ${line}`
 					}  else if (chapter) {
 						line = `## ${line}`
