@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from "fs";
 
-const filename = "./中华人民共和国就业促进法.mdx";
+const filename = "./中华人民共和国社会保险法.mdx";
 let mdx = readFileSync(filename, "utf-8");
 
 let title;
